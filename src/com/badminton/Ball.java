@@ -33,16 +33,19 @@ public class Ball {
 		g.fillOval((int)x-10, (int)y-10, 20, 20);
 	}
 	
-	public void checkRacketCollision(Racket r1, Racket r2){
+	public boolean checkRacketCollision(Racket r1, Racket r2){
 		if(x <= 50){
 			if(y >= r1.getY() && y <= r1.getY() + 80){
 				xVel = -xVel;
+				return true;
 			}
 		}else if(x >= 650){
 			if(y >= r2.getY() && y <= r2.getY() + 80){
 				xVel = -xVel;
+				return true;
 			}
 		}
+		return false;
 	}
 
 	public void move(){
@@ -64,5 +67,4 @@ public class Ball {
 	public int getY(){
 		return (int)y;
 	}
-
 }

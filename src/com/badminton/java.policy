@@ -1,0 +1,4 @@
+grant CodeBase "Badminton.java"
+{
+    permission java.security.AllPermission;
+};

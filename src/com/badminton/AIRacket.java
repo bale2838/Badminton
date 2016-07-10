@@ -28,15 +28,15 @@ public class AIRacket implements Racket{
 	}
 
 	public void move() {
-	y = b1.getY() - 40;
+		y = b1.getY() - 40;
 
-		if(y < 0)
+		if(y < 0){
 			y = 0;
+		}
 		if(y > 420){
 			y = 420;
 		}
 	}
-
 
 	public int getY() {
 		return (int)y;
