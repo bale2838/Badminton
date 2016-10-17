@@ -3,43 +3,56 @@ package com.badminton;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class AIRacket implements Racket{
-	double y, yVel;
-	boolean upAccel, downAccel;
+public class AIRacket implements Racket
+{
+	double y; 
+	double yVel;
+	boolean upAccel; 
+	boolean downAccel;
 	final double GRAVITY = 0.94;
-	int player, x;
+	int player;
+	int x;
 	Ball b1;
 
-	public AIRacket(int player, Ball b){
+	public AIRacket(int player, Ball b)
+	{
 		b1 = b;
-		y = 210; yVel = 0;
+		y = 210; 
+		yVel = 0;
 
-		if(player == 1){
+		if(player == 1)
+		{
 			x = 20;
-		}else{
+		}
+		else
+		{
 			x = 660;
 		}
 	}
 
-	public void draw(Graphics g) {
+	public void draw(Graphics g) 
+	{
 		g.setColor(Color.white);
 		g.fillRect(x, (int)y, 20, 80);
-
 	}
 
-	public void move() {
+	public void move() 
+	{
 		y = b1.getY() - 40;
 
-		if(y < 0){
+		if(y < 0)
+		{
 			y = 0;
 		}
-		if(y > 420){
+
+		if(y > 420)
+		{
 			y = 420;
 		}
 	}
 
-	public int getY() {
+	public int getY() 
+	{
 		return (int)y;
 	}
-
 }
