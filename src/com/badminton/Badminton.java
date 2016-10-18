@@ -6,11 +6,6 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.net.URL;
-import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
-import javax.swing.JLabel;
 
 public class Badminton extends Applet implements Runnable, KeyListener
 {
@@ -27,13 +22,11 @@ public class Badminton extends Applet implements Runnable, KeyListener
 	private Image title;
 	private Image by;
 	private Image pressSpace;
-	private int refreshRate;
 
 	public void init()
 	{
 		this.resize(WIDTH, HEIGHT);
 		gameStarted = false;
-		refreshRate = 10;
 		p1 = new HumanRacket(1);
 		b1 = new Ball();
 		p2 = new AIRacket(2, b1);
@@ -56,7 +49,7 @@ public class Badminton extends Applet implements Runnable, KeyListener
 		if(b1.getX() < -10 || b1.getX() > 710)
 		{
 			gfx.setColor(Color.red);
-			gfx.drawString("GAME OVER", 200, 250);
+			gfx.drawString("GAME OVER", WIDTH/2, HEIGHT/2);
 			b1.xVel = 0;
 			b1.yVel = 0;
 		}
@@ -124,7 +117,8 @@ public class Badminton extends Applet implements Runnable, KeyListener
 			try 
 			{
 				Thread.sleep(((long)(elapsed/NS_PER_SECOND))/(long)MS_PER_UPDATE);
-			} catch (InterruptedException e) 
+			} 
+			catch (InterruptedException e) 
 			{
 				e.printStackTrace();
 			}
@@ -141,7 +135,8 @@ public class Badminton extends Applet implements Runnable, KeyListener
 		else if(e.getKeyCode() == KeyEvent.VK_DOWN)
 		{
 			p1.setDownAccel(true);
-		}else if(e.getKeyCode() == KeyEvent.VK_SPACE)
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_SPACE)
 		{
 			gameStarted = true;
 		}
@@ -152,7 +147,8 @@ public class Badminton extends Applet implements Runnable, KeyListener
 		if(e.getKeyCode() == KeyEvent.VK_UP)
 		{
 			p1.setUpAccel(false);
-		}else if(e.getKeyCode() == KeyEvent.VK_DOWN)
+		}
+		else if(e.getKeyCode() == KeyEvent.VK_DOWN)
 		{
 			p1.setDownAccel(false);
 		}

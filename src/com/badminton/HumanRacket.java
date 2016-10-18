@@ -5,13 +5,13 @@ import java.awt.Graphics;
 
 public class HumanRacket implements Racket
 {
+	int x;
 	double y;
 	double yVel;
 	boolean upAccel;
 	boolean downAccel;
 	final double GRAVITY = 0.94;
 	int player;
-	int x;
 
 	public HumanRacket(int player)
 	{
